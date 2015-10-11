@@ -1,0 +1,26 @@
+{
+    "name": "tebazil/yii2-db-seeder",
+    "description": "Yii2 console command runner that can run without shell_exec() enabled",
+    "type": "yii2-extension",
+    "authors": [
+        {
+            "name": "Vasiliy Baukin",
+            "email": "vasiliy.baukin@gmail.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/tebazil/yii2-db-seeder/issues?state=open",
+        "source": "https://github.com/tebazil/yii2-db-seeder"
+    },
+
+    "require": {
+        "tebazil/db-seeder": "*"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "tebazil\\yii2seeder\\": "src"
+        }
+    }
+
+}
