@@ -1,6 +1,6 @@
 # Yii2 Db Seeder
 
-Yii2 Db seeder is a Yii2 adapter for [Php db seeder](http://github.com/tebazil/db-seeder), which is a tool to quickly populate database with fake data on demand. Great for using in a console application - you can easily refresh your fake data on demand.
+Yii2 Db seeder is a Yii2 adapter for [Php db seeder](http://github.com/tebazil/db-seeder), which is a tool to quickly populate database with fake data.
 
 
 ## Installation
@@ -53,9 +53,19 @@ $seeder->table('category')->columns([
 $seeder->refill();
 ```
 
-Best way to do run this is in console application - then you would be able to run this initially, fix upon database changes and re-run, optionally changing `rowQuantity` and commenting out tables you do not want to refill at the time, like user table.
+## Best usage practices
 
-You can also run this console command in autodeploy hook on dev server, not forgetting to keep it up to date with current migrations.
+- Create your project's database, generate some models and crud with gii.
+- Make a console application controller for action refilling database with test data.
+- Run it when it is needed
+
+=> You have project with test data in your database, easier to develop and easier to show to clients what's being happening
+
+* * * 
+
+ - If you use migrations, don't be confused with the fact that migrations keep the project history, and `db-seeder` is not bound to them - migrations and seeding are two different instruments. Migrations is a long-term instrument to manipulate database structure with time keeping history, and database seeder is a simple library to keep test data up-to-date. So, when a new migration appears, just fix the console command filling the database to be up-to-date.
+ - On early project develoment stages, the tool is useful when being run every time a commit happens, happening immediately after migrations are applied
+ - On later project development stages constant test data refilling might ruin the testing, so the advice would be to refill manually and only the tables you need (usually the newly created ones - to test out new things) 
 
 Please review the [Php db seeder](http://github.com/tebazil/db-seeder) for extended documentation on usage. 
 
@@ -71,7 +81,7 @@ There. Seeder would be using `Yii::$app->db2` now.
 
 - You can use standart yii wildcards for prefixed table names, like `{{%table_name}}`.
 
-- `yii\db\Migration` is used as a database tool instead of a native database helper. This basically means that you can work with all the databases Yii2 supports. 
+- `yii\db\Migration` is used as a database abstraction layer instead of a native database helper. This basically means that you can work with all the databases Yii2 supports. 
 
 
 
