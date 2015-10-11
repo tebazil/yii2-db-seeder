@@ -59,7 +59,7 @@ You can also run this console command in autodeploy hook on dev server, not forg
 
 Please review the [Php db seeder](http://github.com/tebazil/db-seeder) for extended documentation on usage. 
 
-##Differences from original library
+## Differences from original library
 - With `Yii2 Db Seeder` you do not need to provide database configuration by default, it uses `Yii::$app->db` to retrieve connection information. 
 You can optionally provide seeder with a database connection component name. You do that like:
 
@@ -70,6 +70,8 @@ $seeder = new \tebazil\yii2seeder\Seeder('db2');
 There. Seeder would be using `Yii::$app->db2` now.
 
 - You can use standart yii wildcards for prefixed table names, like `{{%table_name}}`.
+
+- `yii\db\Migration` is used as a database tool instead of a native database helper. This basically means that you can work with all the databases Yii2 supports. 
 
 
 
