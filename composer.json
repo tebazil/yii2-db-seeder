@@ -2,6 +2,7 @@
     "name": "tebazil/yii2-db-seeder",
     "description": "Yii2 console command runner that can run without shell_exec() enabled",
     "type": "yii2-extension",
+    "license": "BSD-3-Clause",
     "authors": [
         {
             "name": "Vasiliy Baukin",
